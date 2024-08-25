@@ -2,31 +2,34 @@
 
 include "database.php";
 
-
-
-
 function getUsers()
 {
     $conn = openConnection();
     $sql = "SELECT id,username, email FROM users";
-    $data = $conn->query($sql);
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
-    if ($data->num_rows > 0) {
-        while ($row = $data->fetch_assoc()) {
-            echo "<br>" . "id: " . $row["id"] . "<br>" . "Username: " . $row["username"] . "<br>" . "Email: " . $row["email"] . "<br>";
+    if ($result->num_rows > 0) {
+        while ($user = $result->fetch_assoc()) {
+            var_dump($user);
         }
     } else {
-        echo "NULL query";
+        echo "Failed";
     }
+
+    $stmt->close();
     $conn->close();
 }
 
-function getUser($username, $email)
+// getUsers();
+
+function getUser($username, $password)
 {
     $conn = openConnection();
-    $sql = "SELECT id, username, email FROM users WHERE username=? AND email=?";
+    $sql = "SELECT id, username, email FROM users WHERE username=? AND password=?";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param('ss', $username, $email);
+    $stmt->bind_param('ss', $username, $password);
 
     $stmt->execute();
 
@@ -35,7 +38,7 @@ function getUser($username, $email)
     if ($result->num_rows > 0) {
         // Fetch the user data
         $user = $result->fetch_assoc();
-        var_dump($user);
+        return $user;
     } else {
         echo "No user found.";
     }
@@ -44,4 +47,6 @@ function getUser($username, $email)
     $conn->close();
 }
 
-getUser("mohcine", "mohcine@yahoo.com");
+if ($user = getUser("mohcine", "1234")) {
+    echo "Welcome: " . $user['username'];
+}
