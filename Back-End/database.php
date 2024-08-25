@@ -2,10 +2,11 @@
 
 <?php
 $servername = "localhost";
-$admin = "admin";
+$admin = "root";
 $password = "";
+$database = "login";
 
-$conn = new mysqli($servername, $admin, $password);
+$conn = new mysqli($servername, $admin, $password, $database);
 
 if ($conn->connect_error) {
     die("Connection error:" . $conn->connect_error);
