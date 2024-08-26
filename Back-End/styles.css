@@ -1,0 +1,125 @@
+/* General Styles */
+
+body {
+    background-color: #ffffff;
+    /* White background */
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    color: #333;
+    /* Dark text color for better contrast */
+}
+
+
+/* Container Styles */
+
+.login-container,
+.profile-container {
+    background: #f4f4f4;
+    /* Slightly gray background for containers */
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    /* Enhanced shadow for more depth */
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+/* Headings */
+
+.login-container h1,
+.profile-container h1 {
+    margin-bottom: 20px;
+    font-size: 2.5em;
+    text-transform: uppercase;
+    color: #2c3e50;
+    /* Darker color for headings */
+}
+
+
+/* Form Styling */
+
+.login-container form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+
+/* Input Fields */
+
+.login-container input[type="text"],
+.login-container input[type="password"] {
+    width: 90%;
+    padding: 15px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    /* Light border for inputs */
+    border-radius: 5px;
+    font-size: 1em;
+    background-color: #ffffff;
+    /* White background for inputs */
+    color: #333;
+    /* Dark text color for contrast */
+    box-sizing: border-box;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Light shadow for input fields */
+}
+
+
+/* Unified Button Style */
+
+.button {
+    width: 90%;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-top: 20px;
+    box-sizing: border-box;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Shadow for buttons */
+}
+
+.button-primary {
+    background: #2980b9;
+    color: white;
+}
+
+.button-primary:hover {
+    background: #1a5276;
+}
+
+.button-danger {
+    background: #e74c3c;
+    color: white;
+}
+
+.button-danger:hover {
+    background: #c0392b;
+}
+
+
+/* Error Message */
+
+.error {
+    background: #e74c3c;
+    color: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    margin-top: 15px;
+    display: inline-block;
+    font-size: 1.1em;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Shadow for error message */
+}
